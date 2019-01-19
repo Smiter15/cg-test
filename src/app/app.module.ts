@@ -1,14 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
+import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
+import { VehicleGetComponent } from './vehicle-get/vehicle-get.component';
+
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VehicleAddComponent,
+    VehicleEditComponent,
+    VehicleGetComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    SlimLoadingBarModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
