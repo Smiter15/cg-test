@@ -1,3 +1,29 @@
-<p>
-  vehicle-edit works!
-</p>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="editForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Id</label>
+        <input type="text" class="form-control" formControlName="id" #id [(ngModel)] = "vehicle.id" />
+      </div>
+      <div *ngIf="editForm.controls['id'].invalid && (editForm.controls['id'].dirty || editForm.controls['id'].touched)" class="alert alert-danger">
+        <div *ngIf="editForm.controls['id'].errors.required">
+          Id is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Model year</label>
+        <input type="text" class="form-control" formControlName="modelYear" #modelYear [(ngModel)] = "vehicle.modelYear" />
+      </div>
+      <div *ngIf="editForm.controls['modelYear'].invalid && (editForm.controls['modelYear'].dirty || editForm.controls['modelYear'].touched)" class="alert alert-danger">
+        <div *ngIf="editForm.controls['modelYear'].errors.required">
+          Model year is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updateVehicle(id.value, modelYear.value)"
+                [disabled]="editForm.invalid"
+                class="btn btn-primary">Update vehicle</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { VehicleService } from '../_services/vehicle.service';
@@ -11,9 +12,14 @@ import { VehicleService } from '../_services/vehicle.service';
 export class VehicleAddComponent implements OnInit {
 
   vehicleForm: FormGroup;
-  constructor(private fb: FormBuilder, private vs: VehicleService) {
+
+  constructor(private router: Router,
+              private fb: FormBuilder,
+              private vs: VehicleService) {
     this.createForm();
   }
+
+  ngOnInit() { }
 
   createForm() {
     this.vehicleForm = this.fb.group({
@@ -23,9 +29,7 @@ export class VehicleAddComponent implements OnInit {
   }
 
   addVehicle(id: String, modelYear: String) {
-    this.vs.addVehicle(id, modelYear);
+    this.vs.addVehicle(id, modelYear).subscribe(() => this.router.navigateByUrl('/vehicle'));
   }
-
-  ngOnInit() { }
 
 }

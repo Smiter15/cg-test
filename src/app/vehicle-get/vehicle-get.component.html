@@ -1,3 +1,48 @@
-<p>
-  vehicle-get works!
-</p>
+<button class="btn btn-info" (click)="showAdmin = !showAdmin">
+  <span [hidden]="showAdmin">Show </span>
+  <span [hidden]="!showAdmin">Hide </span>
+  admin
+</button>
+<table [hidden]="!showAdmin" class="table table-hover">
+  <thead>
+  <tr>
+    <td><strong>Id</strong></td>
+    <td><strong>Model year</strong></td>
+    <td><strong>Image</strong></td>
+    <td colspan="2"><strong>Actions</strong></td>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let vehicle of vehicles">
+    <td>{{ vehicle.id }}</td>
+    <td>{{ vehicle.modelYear }}</td>
+    <td><img [src]="'../../assets/'+vehicle.media[0].url" [alt]="vehicle.media[0].name" /></td>
+    <td><a [routerLink]="['/vehicle/edit', vehicle._id]" class="btn btn-primary">Edit</a></td>
+    <td><a (click)="deleteVehicle(vehicle._id)" class="btn btn-danger">Delete</a></td>
+  </tr>
+  </tbody>
+</table>
+
+<section>
+  <div *ngIf="!isMobileWidth" class="row no-gutters">
+      <div *ngFor="let vehicle of vehicles" class="col-xl-3 col-md-6 col-12 vehicle">
+        <img [src]="'../../assets/'+vehicle.media[0].url" [alt]="vehicle.media[0].name" />
+        <h3>VEHICLE NAME</h3>
+        <p>From £76,350</p>
+        <p>The pinnacle of refined capability</p>
+      </div>
+  </div>
+  <div *ngIf="isMobileWidth">
+      <div *ngFor="let vehicle of vehicles" class="row">
+        <div class="col-4 vehicle">
+          <img [src]="'../../assets/'+vehicle.media[0].url" [alt]="vehicle.media[0].name" />
+        </div>
+        <div class="col-8">
+          <h3>VEHICLE NAME</h3>
+          <p>From £76,350</p>
+          <p>The pinnacle of refined capability</p>
+        </div>
+      </div>
+    </div>
+</section>

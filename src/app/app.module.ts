@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
 import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
 import { VehicleGetComponent } from './vehicle-get/vehicle-get.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
@@ -17,7 +18,8 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
     AppComponent,
     VehicleAddComponent,
     VehicleEditComponent,
-    VehicleGetComponent
+    VehicleGetComponent,
+    VehicleComponent
   ],
   imports: [
     BrowserModule,

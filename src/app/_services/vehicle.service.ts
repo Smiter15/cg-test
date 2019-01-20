@@ -10,13 +10,36 @@ export class VehicleService {
 
   constructor(private http: HttpClient) { }
 
+  getVehicles() {
+    return this.http.get(`${this.uri}`);
+  }
+
+  getVehicle(id) {
+    return this.http.get(`${this.uri}/edit/${id}`);
+  }
+
   addVehicle(id, modelYear) {
-    const obj = {
+    const vehicle = {
       id,
-      modelYear
+      modelYear,
+      url: `/api/vehicle/${id}`,
+      media: [{
+        name: 'vehicle',
+        url: `/images/${id}_${modelYear}.jpg`
+      }]
     };
-    console.log(obj);
-    this.http.post(`${this.uri}/add`, obj)
-      .subscribe(res => console.log(res, 'done'));
+    return this.http.post(`${this.uri}/add`, vehicle);
+  }
+
+  editVehicle(id) {
+    return this.http.get(`${this.uri}/edit/${id}`);
+  }
+
+  updateVehicle(id, modelYear, mongoId) {
+    this.http.post(`${this.uri}/update/${mongoId}`, {id, modelYear});
+  }
+
+  deleteVehicle(mongoId) {
+    return this.http.get(`${this.uri}/delete/${mongoId}`);
   }
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
 import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
 import { VehicleGetComponent } from './vehicle-get/vehicle-get.component';
 
@@ -9,6 +10,10 @@ const routes: Routes = [
   {
     path: 'vehicle/add',
     component: VehicleAddComponent
+  },
+  {
+    path: 'vehicle/:id',
+    component: VehicleComponent
   },
   {
     path: 'vehicle/edit/:id',
