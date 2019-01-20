@@ -18,6 +18,7 @@ export class VehicleComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.vs.getVehicle(params['id']).subscribe(res => {
         this.vehicle = res;
+        console.log(this.vehicle);
       });
     });
   }

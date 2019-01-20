@@ -26,7 +26,7 @@
 
 <section>
   <div *ngIf="!isMobileWidth" class="row no-gutters">
-      <div *ngFor="let vehicle of vehicles" class="col-xl-3 col-md-6 col-12 vehicle">
+      <div *ngFor="let vehicle of vehicles" [routerLink]="['/vehicle', vehicle._id]" class="col-xl-3 col-md-6 col-12 vehicle">
         <img [src]="'../../assets/'+vehicle.media[0].url" [alt]="vehicle.media[0].name" />
         <h3>VEHICLE NAME</h3>
         <p>From £76,350</p>

@@ -6,4 +6,15 @@ export default interface Vehicle {
       name: String;
       url: String;
     }];
+    description: String;
+    price: String;
+    meta: {
+      passengers: Number;
+      drivetrain: Object;
+      bodystyles: Object;
+      emissions: {
+        template: String;
+        value: Number;
+      };
+    };
 }

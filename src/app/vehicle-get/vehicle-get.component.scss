@@ -3,6 +3,13 @@ button {
 }
 .vehicle {
   text-align: center;
+  cursor: pointer;
+  &:hover {
+    background: #cedbf3;
+    img {
+      opacity: 0.5;
+    }
+  }
   img {
     width: 100%;
   }

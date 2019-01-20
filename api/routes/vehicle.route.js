@@ -5,7 +5,6 @@ const vehicleRoutes = express.Router();
 // Require Vehicle model in our routes module
 let Vehicle = require('../models/Vehicle');
 
-// Defined store route
 vehicleRoutes.route('/add').post(function (req, res) {
   let vehicle = new Vehicle(req.body);
   vehicle.save()
@@ -19,7 +18,6 @@ vehicleRoutes.route('/add').post(function (req, res) {
     });
 });
 
-// Defined get data(index or listing) route
 vehicleRoutes.route('/').get(function (req, res) {
   Vehicle.find(function (err, vehicles){
     if(err){
@@ -31,7 +29,6 @@ vehicleRoutes.route('/').get(function (req, res) {
   });
 });
 
-// Defined edit route
 vehicleRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
   Vehicle.findById(id, function (err, vehicle){
@@ -44,7 +41,6 @@ vehicleRoutes.route('/edit/:id').get(function (req, res) {
   });
 });
 
-//  Defined update route
 vehicleRoutes.route('/update/:id').post(function (req, res) {
   Vehicle.findById(req.params.id, function(err, vehicle) {
     if (!vehicle)
@@ -63,7 +59,6 @@ vehicleRoutes.route('/update/:id').post(function (req, res) {
   });
 });
 
-// Defined delete | remove | destroy route
 vehicleRoutes.route('/delete/:id').get(function (req, res) {
   Vehicle.findByIdAndRemove({_id: req.params.id}, function(err, vehicle){
     if(err) res.json(err);

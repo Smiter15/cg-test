@@ -1,3 +1,32 @@
-<p>
-  vehicle works!
-</p>
+<section>
+  <div class="row">
+    <div class="col-12">
+      <a routerLink="/vehicle">< Back</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2>{{vehicle?.id}} - {{vehicle?.modelYear}}</h2>
+      <img [src]="'../../assets/'+vehicle?.media[0]?.url" [alt]="vehicle?.media[0]?.name" />
+      <h3>{{vehicle?.price}}</h3>
+      <p>{{vehicle?.description}}</p>
+    </div>
+    <div class="col-md-3 col-12 text-center">
+      <h5>Passengers</h5>
+      {{vehicle.meta.passengers}}
+    </div>
+    <div class="col-md-3 col-12 text-center">
+      <h5>Body styles</h5>
+      <p *ngFor="let b of vehicle.meta.bodystyles">{{b}}</p>
+    </div>
+    <div class="col-md-3 col-12 text-center">
+      <h5>Drive train</h5>
+      <p *ngFor="let d of vehicle.meta.drivetrain">{{d}}</p>
+    </div>
+    <div class="col-md-3 col-12 text-center">
+      <h5>Emissions</h5>
+      <p>{{vehicle.meta.emissions.template}}</p>
+      <p>{{vehicle.meta.emissions.value | currency}}</p>
+    </div>
+  </div>
+</section>
