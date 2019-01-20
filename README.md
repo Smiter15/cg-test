@@ -1,26 +1,20 @@
-# ConnectGroupMatt
+# MEAN Stack ConnectGroup test
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
+As the test was framework agnostic I chose to rebuild the node express server in an angular application. I have attempted to maintain the data structure and added partial* CRUD functionality.
+
+*Can only add a new vehicle with id and model year with the form.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`npm install`.  Run `ng s` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Running Mongo Server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+As admin start the mongoDB in /api with `mongod`. Kick off the node server in /api with `nodemon ./server.js`. Import the vehicle data found in vehicle.json.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+##Enjoy the app
 
 ## Further help
 
